@@ -465,7 +465,23 @@ body.wcz-edit-sale.woocommerce ul.products li.product span.onsale,
         
         <div class="navbar-tool dropdown ml-3"> 
          <div class="cartzilla-cart-toggle d-flex"> 
-          <a class="navbar-tool-icon-box bg-secondary dropdown-toggle" href="https://contact-digital-emporium.thegreatest3.repl.co/"> <span class="navbar-tool-label">0</span> <i class="navbar-tool-icon czi-cart"></i> </a> 
+          <a href="https://contact-digital-emporium.thegreatest3.repl.co/" class="d-table-cell cz-handheld-toolbar-item cz-handheld-toolbar-cart">
+    <span class="cz-handheld-toolbar-icon"><i class="czi-cart"></i></span>
+    <span class="badge badge-primary badge-pill" id="clickCount">0</span>
+    <span class="cz-handheld-toolbar-label">$0.00</span>
+</a>
+ <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+        var clickCount = 0;
+        var clickElement = $("#clickCount");
+
+        $(".cz-handheld-toolbar-cart").click(function() {
+            clickCount++;
+            clickElement.text(clickCount);
+        });
+    });
+</script>
          </div> 
          <div class="cartzilla-cart dropdown-menu dropdown-menu-right" style="width: 20rem;"> 
           <div class="widget widget-cart px-3 pt-2 pb-3"> 
@@ -608,10 +624,10 @@ body.wcz-edit-sale.woocommerce ul.products li.product span.onsale,
           <div class="card-body"> 
            <div class="d-flex flex-wrap justify-content-between align-items-start pb-2 product-category-list"> 
             <div class="text-muted font-size-xs mr-1"> 
-             <span class="cartzilla-product-card-alt-categories"><a href="https://contact-digital-emporium.thegreatest3.repl.co/" class="product-meta font-weight-medium" rel="tag">Linking and Automations</a></span> 
+             <span class="cartzilla-product-card-alt-categories"><a href="https://app.fawaterk.com/pg/digital-emporium-payment-page" class="product-meta font-weight-medium" rel="tag">Linking and Automations</a></span> 
             </div> 
            </div>
-           <h3 class="woocommerce-loop-product__title product-title font-size-sm"><a href="https://contact-digital-emporium.thegreatest3.repl.co/">Accounts Linking with different platforms</a></h3> 
+           <h3 class="woocommerce-loop-product__title product-title font-size-sm"><a href="https://app.fawaterk.com/pg/digital-emporium-payment-page">Accounts Linking with different platforms</a></h3> 
            <div class="d-flex flex-wrap justify-content-between align-items-center"> 
             <div class="bg-faded-accent text-accent rounded-sm py-1 px-2"> 
              <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">$</span>999.<small>00</small></span> 
@@ -1008,63 +1024,46 @@ body.wcz-edit-sale.woocommerce ul.products li.product span.onsale,
      </div> 
     </div> 
    </footer> 
-   <a class="btn-scroll-top" href="#" data-scroll="true"> <span class="btn-scroll-top-tooltip text-muted font-size-sm mr-2">Top</span> <i class="btn-scroll-top-icon czi-arrow-up"></i> </a> 
+   <a class="btn-scroll-top show" href="#" data-scroll="true"> <span class="btn-scroll-top-tooltip text-muted font-size-sm mr-2">Top</span> <i class="btn-scroll-top-icon czi-arrow-up"></i> </a> 
    <div class="woocommerce-notices-wrapper"></div> 
    <div class="cz-handheld-toolbar"> 
     <div class="d-table table-layout-fixed w-100"> 
-     <a href="https://contact-digital-emporium.thegreatest3.repl.co/" data-toggle="sidebar" class="d-table-cell cz-handheld-toolbar-item"> <span class="cz-handheld-toolbar-icon"> <i class="czi-menu"></i> </span> <span class="cz-handheld-toolbar-label"></span>Menu</a> 
-     <a href="https://contact-digital-emporium.thegreatest3.repl.co/" class="d-table-cell cz-handheld-toolbar-item cz-handheld-toolbar-cart"> <span class="cz-handheld-toolbar-icon"> <i class="czi-cart"></i> <span class="badge badge-primary badge-pill">0</span> </span> <span class="cz-handheld-toolbar-label">$0.00</span> </a> 
+     <a href="#cz-handheld-sidebar" data-toggle="sidebar" class="d-table-cell cz-handheld-toolbar-item"> <span class="cz-handheld-toolbar-icon"> <i class="czi-menu"></i> </span> <span class="cz-handheld-toolbar-label">Menu</span> </a> 
+    <a href="#" class="d-table-cell cz-handheld-toolbar-item cz-handheld-toolbar-cart">
+    <span class="badge badge-primary badge-pill" id="clickCount">0</span>
+    <span class="cz-handheld-toolbar-label" id="statusLabel">$0.00</span>
+</a>
     </div> 
    </div> 
-  </div> 
- <style>
-     .cz-handheld-toolbar-label {
-  font-size: 35px; /* حجم الخط الجديد */
+  </div>
+  <style>
+      .cz-handheld-toolbar-cart {
+    display: flex;
+    align-items: center;
 }
 
- </style>
- <style>
-     .toolbar {
-  position: fixed;
-  top: 0; /* يثبت العنصر في الجزء العلوي من الشاشة */
-  left: 0; /* يثبت العنصر في الجزء الأيسر من الشاشة */
-  width: 100%; /* يأخذ عرض الشاشة بالكامل */
-  background-color: #ffffff; /* لون خلفية العنصر */
-  z-index: 100; /* للتأكد من أنه يظهر أمام باقي المحتوى */
-  /* يمكنك إضافة أي تنسيقات إضافية حسب الحاجة */
+#clickCount, #statusLabel {
+    margin: 0 5px; /* تغيير القيمة حسب الفاصل الذي ترغب فيه */
+    color: black;
 }
- </style>
- <style>
-     .btn-scroll-top {
-  /* قم بإزالة هذا الخاصية */
-  /* position: fixed; */
-}
- </style>
-  <div class="quick-view-wrapper single-product style-v1"> 
-   <div class="modal fade modal-quick-view" id="quick-view" tabindex="-1" role="dialog" aria-hidden="true"> 
-    <div class="modal-dialog modal-xl"> 
-     <div class="modal-content"> 
-      <div class="modal-body p-0"> 
-       <div id="modal-quick-view-ajax-content" class="cd-quick-view"></div> 
-      </div> 
-     </div> 
-    </div> 
-   </div> 
-  </div> 
-  <script type="text/javascript">
-		(function () {
-			var c = document.body.className;
-			c = c.replace(/woocommerce-no-js/, 'woocommerce-js');
-			document.body.className = c;
-		})();
-	</script> 
-  <script type="text/template" id="tmpl-variation-template">
-	<div class="woocommerce-variation-description font-size-ms">{{{ data.variation.variation_description }}}</div>
-	<div class="d-flex flex-wrap justify-content-between align-items-center mb-3 variation-price-wrap">
-		<div class="woocommerce-variation-price">{{{ data.variation.price_html }}}</div>
-		<div class="woocommerce-variation-availability">{{{ data.variation.availability_html }}}</div>
-	</div>
-</script> 
+  </style>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+        var clickCount = 0;
+        var clickElement = $("#clickCount");
+        var statusLabel = $("#statusLabel");
+
+        $(".cz-handheld-toolbar-cart").click(function() {
+            clickCount++;
+            clickElement.text(clickCount);
+
+            if (clickCount > 0) {
+                statusLabel.text("unverified").css("color", "red");
+            }
+        });
+    });
+</script>
   <script type="text/template" id="tmpl-unavailable-variation-template">
 	<p class='font-size-sm text-muted'>Sorry, this product is unavailable. Please choose a different combination.</p>
 </script> 
